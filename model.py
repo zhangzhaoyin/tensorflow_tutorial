@@ -1,3 +1,9 @@
+# -*- coding: utf-8 -*-
+# @Author: Zhaoyin Zhang
+# @Date:2017/7/3 16:10
+# @Contact: 940942500@qq.com
+
+
 class Model(object):
     """Abstracts a Tensorflow graph for a learning task.
 
