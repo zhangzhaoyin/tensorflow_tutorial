@@ -13,6 +13,7 @@ class Config(object):
      information parameters. Model objects are passed a Config() object at
      instantiation.
      """
+
     iris = load_iris()
     input_data = iris.data
     input_labels = iris.target
@@ -32,6 +33,7 @@ class Config(object):
 
 def test_SoftmaxModel():
     """Train softmax model for a number of steps."""
+
     config = Config()
     with tf.Graph().as_default():
         model = SoftmaxModel(config)

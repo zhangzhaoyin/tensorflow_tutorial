@@ -9,11 +9,21 @@ from utils import data_iterator
 import time
 import sys
 
+
+"""
+具体建模的过程，实现Model类的方法
+
+"""
+
+
 class SoftmaxModel(Model):
+
     """Implements a Softmax classifier with cross-entropy loss."""
 
     def load_data(self):
+
         """Creates a synthetic dataset and stores it in memory."""
+
         # np.random.seed(1234)
         # self.input_data = np.random.rand(
         #     self.config.n_samples, self.config.n_features)
@@ -42,6 +52,7 @@ class SoftmaxModel(Model):
 
             (Don't change the variable names)
             """
+
         self.input_placeholder = tf.placeholder(
             tf.float32, shape = (self.config.batch_size, self.config.n_features)
         )
@@ -71,6 +82,7 @@ class SoftmaxModel(Model):
             Returns:
               feed_dict: The feed dictionary mapping from placeholders to values.
             """
+
         feed_dict = {
             self.input_placeholder : input_batch,
             self.labels_placeholder: label_batch,
@@ -148,6 +160,7 @@ class SoftmaxModel(Model):
              loss: A 0-d tensor (scalar)
 
            """
+
         cross_entropy = tf.reduce_mean(
             tf.nn.softmax_cross_entropy_with_logits(logits=pred, labels=self.labels_placeholder))
 
@@ -179,6 +192,7 @@ class SoftmaxModel(Model):
             Returns:
               average_loss: scalar. Average minibatch loss of model on epoch.
             """
+
         # And then after everything is built, start the training loop.
 
         orig_X, orig_y = input_data, input_labels
@@ -211,6 +225,17 @@ class SoftmaxModel(Model):
 
 
     def fit(self, sess, input_data, input_labels):
+
+        """Fit model on provided data.
+
+            Args:
+              sess: tf.Session()
+              input_data: np.ndarray of shape (n_samples, n_features)
+              input_labels: np.ndarray of shape (n_samples, n_classes)
+            Returns:
+              losses: list of loss per epoch
+        """
+
         losses = []
         for epoch in range(0,self.config.max_epochs):
 
@@ -232,6 +257,7 @@ class SoftmaxModel(Model):
             Args:
               config: A model configuration object of type Config
         """
+
         self.config = config
         self.load_data()
         self.add_placeholders()

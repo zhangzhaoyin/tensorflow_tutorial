@@ -3,6 +3,12 @@
 # @Date:2017/7/3 16:10 
 # @Contact: 940942500@qq.com
 
+
+"""
+改类主要是定义模型的结构
+"""
+
+
 class Model(object):
 
     def load_data(self):

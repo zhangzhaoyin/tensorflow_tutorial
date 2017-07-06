@@ -6,6 +6,10 @@
 import numpy as np
 
 
+"""
+数据迭代方法，生成batch_size的数据
+"""
+
 def data_iterator(orig_X, orig_y=None, batch_size=32, label_size=2, shuffle=False):
   # Optionally shuffle the data before training
   if shuffle:
